@@ -33,13 +33,13 @@ function da_add_coupon_to_wordpress(){
                 // Add meta
         update_post_meta( $new_coupon_id, 'discount_type', $discount_type );
         update_post_meta( $new_coupon_id, 'coupon_amount', $amount );
-        update_post_meta( $new_coupon_id, 'individual_use', 'yes' );
-        update_post_meta( $new_coupon_id, 'product_ids', '43' );
-        update_post_meta( $new_coupon_id, 'exclude_product_ids', '' );
-        update_post_meta( $new_coupon_id, 'usage_limit', '1' );
-        update_post_meta( $new_coupon_id, 'usage_limit_per_user', '1' );
-        update_post_meta( $new_coupon_id, 'limit_usage_to_x_items', '1' );
+        update_post_meta( $new_coupon_id, 'individual_use', $individual_use );
+        update_post_meta( $new_coupon_id, 'product_ids', $product_ids );
+        update_post_meta( $new_coupon_id, 'exclude_product_ids', $exclude_product_ids );
+        update_post_meta( $new_coupon_id, 'usage_limit', $usage_limit );
+        update_post_meta( $new_coupon_id, 'usage_limit_per_user', $usage_limit_per_user );
+        update_post_meta( $new_coupon_id, 'limit_usage_to_x_items', $limit_usage_to_x_items );
         //update_post_meta( $new_coupon_id, 'expiry_date', '' );
-        update_post_meta( $new_coupon_id, 'apply_before_tax', 'yes' );
-        update_post_meta( $new_coupon_id, 'free_shipping', 'yes' );
+        update_post_meta( $new_coupon_id, 'apply_before_tax', $apply_before_tax );
+        update_post_meta( $new_coupon_id, 'free_shipping', $free_shipping );
 }
