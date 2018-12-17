@@ -5,13 +5,12 @@ if ( ! defined( 'ABSPATH' )){
 function wpdocs_set_html_mail_content_type() {
     return 'text/html';
 }
-add_filter( 'wp_mail_content_type', 'wpdocs_set_html_mail_content_type' );
+//add_filter( 'wp_mail_content_type', 'wpdocs_set_html_mail_content_type' );
 function da_send_coupon_email(){
                 global $email;
                 global $coupon_code;
                 $to = $email;
                 $subject = "Free Sample code";
-
                 $message = "
                 <html>
                    <head>
@@ -119,4 +118,4 @@ function da_send_coupon_email(){
                 wp_mail($to,$subject,$message,$headers);
 }
 // Reset content-type to avoid conflicts -- https://core.trac.wordpress.org/ticket/23578
-remove_filter( 'wp_mail_content_type', 'wpdocs_set_html_mail_content_type' );
+//remove_filter( 'wp_mail_content_type', 'wpdocs_set_html_mail_content_type' );

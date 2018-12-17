@@ -37,10 +37,10 @@ function da_coupgen_admin_init(){//Registers settings function
         'plugin_options_validate' 
     );
     add_settings_section(
-        'plugin_main', 
-        'MailChimp Settings', 
-        'da_coupgen_mailchimp_section_text', 
-        'da-coupon-generator'
+        'plugin_main', //ID of Section
+        'MailChimp Settings', // Title of the section
+        'da_coupgen_mailchimp_section_text', // Call to callback function
+        'da-coupon-generator'//the menu page to display the section
     );    
     add_settings_section(
         'plugin_secondary', //ID of Section
@@ -190,7 +190,7 @@ function da_coupgen_discount_type(){
 }
 function da_coupgen_individual_use(){
     $options = get_option('da_coupgen_plugin_options');
-    echo '<input type="checkbox" name="" value=""><p>Check to only allow individual use</p>';//Checkbox for yes uncheched is no.
+    echo '<input type="checkbox" name="da_coupgen_plugin_options[individual_use]" value=""><p>Check to only allow individual use</p>';//Checkbox for yes uncheched is no.
 }
 
 function da_coupgen_product_id(){

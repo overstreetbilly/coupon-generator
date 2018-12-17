@@ -11,14 +11,14 @@ function da_add_coupon_to_wordpress(){
     $coupon_options = get_option('da_coupgen_plugin_options');
     $amount = $coupon_options['coupgen_amount'];
     $discount_type = $coupon_options['discount_type'];
-    $individual_use = '';
-    $product_ids = '';
-    $exclude_product_ids = '';
-    $usage_limit = '';
-    $usage_limit_per_user = '';
-    $limit_usage_to_x_items = '';
-    $apply_before_tax = '';
-    $free_shipping = '';
+    $individual_use = $coupon_options['individual_use'];
+    $product_ids = $coupon_options['coupgen_product_id'];
+    $exclude_product_ids = $coupon_options['coupgen_exclude_product_id'];
+    $usage_limit = $coupon_options['coupgen_usage_limit'];
+    $usage_limit_per_user = $coupon_options['coupgen_usage_limit_per_user'];
+    $limit_usage_to_x_items = $coupon_options['coupgen_limit_usage_to_x_items'];
+    $apply_before_tax = $coupon_options[''];
+    $free_shipping = $coupon_options[''];
 
     $coupon = array(
         'post_title' => $coupon_code,
