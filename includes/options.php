@@ -7,6 +7,7 @@ add_action( 'admin_menu', 'coupon_generator_menu' );
 function coupon_generator_menu() {
 	add_menu_page( 'Coupon Generator Settings', 'Coupon Generator', 'manage_options', 'da-coupon-generator', 'coupon_generator_options' );
     add_submenu_page('da-coupon-generator', 'Email Settings', 'Email Settings', 'manage_options', 'da-coupon-generator-email-settings', 'da_coupon_generator_email_settings');
+    //add_submenu_page($parent_slug, $page_title, $menu_title, $capability, $menu_slug, $function); 
 }
 
 
@@ -23,6 +24,10 @@ function coupon_generator_options() {
    <?php
 }
 
+
+
+
+
 add_action('admin_init', 'da_coupgen_admin_init');
 
 
@@ -36,32 +41,14 @@ function da_coupgen_admin_init(){//Registers settings function
         'da_coupgen_plugin_options',
         'plugin_options_validate' 
     );
-    add_settings_section(
-        'plugin_main', //ID of Section
-        'MailChimp Settings', // Title of the section
-        'da_coupgen_mailchimp_section_text', // Call to callback function
-        'da-coupon-generator-email-settings'//the menu page to display the section
-    );    
+      
     add_settings_section(
         'plugin_secondary', //ID of Section
         'Coupon Settings', // Title of the section
         'da_coupgen_coupon_section_text', // Call to callback function
         'da-coupon-generator' //the menu page to display the section
     );
-    add_settings_field(
-        'da_coupgen_mc_api_key_input', //Setting ID used to retrieve from database
-        'MailChimp API Key', //Title of setting displayed next to setting on plugin page
-        'da_coupgen_mc_api_key', //Call back function used to display markup
-        'da-coupon-generator-email-settings', //Specifies the page setting should be displayed on
-        'plugin_main'//Specifies the section that displays the setting should match the section ID
-    );
-    add_settings_field(
-        'da_coupgen_mc_list_id_input', 
-        'MailChimp List ID', 
-        'da_coupgen_mc_list_id', 
-        'da-coupon-generator-email-settings', 
-        'plugin_main'
-    );
+
     
     add_settings_field(
         'da_coupgen_amount_input',
@@ -142,25 +129,15 @@ function da_coupgen_admin_init(){//Registers settings function
     );
 }
 
-function da_coupgen_mailchimp_section_text() {
-    echo '<p>Add MailChimp API Key and List ID Here.
-            <br>To display the form, use Shortcode: [coupon-generator]</p>';
-}
+
 
 function da_coupgen_coupon_section_text() {
     echo '<p>Change Coupon Settings</p>';
     if(!class_exists('Woocommerce')){
-        echo '<div class="notice notice-warning is-dismissible ppec-dismiss-bootstrap-warning-message"><p>This Plugin requires Woocommerce to be installed before it will work.</p></div>';
+        echo '<div class="notice notice-warning is-dismissible ppec-dismiss-bootstrap-warning-message">
+                <p>This Plugin requires Woocommerce to be installed before it will work.</p>
+                </div>';
     }
-}
-
-function da_coupgen_mc_api_key() {
-    $options = get_option('da_coupgen_plugin_options');
-    echo "<input id='da-coupgen-input-mc-api-key' name='da_coupgen_plugin_options[mc_api_key]' size='40' type='text' value='{$options['mc_api_key']}' />";
-} 
-function da_coupgen_mc_list_id() {
-    $options = get_option('da_coupgen_plugin_options');
-    echo "<input class='da-coupgen-mc-list-id' name='da_coupgen_plugin_options[mc_list_id]' size='40' type='text' value='{$options['mc_list_id']}' />";
 }
 
 function da_coupgen_amount(){
