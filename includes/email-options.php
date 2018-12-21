@@ -53,6 +53,13 @@ function da_coupgen_add_email_settings_sections(){
         'da-coupon-generator-email-settings', 
         'da_coupgen_mc_settings'
     );
+    add_settings_field(
+        'da_coupgen_email_subject', //Setting ID used to retrieve from database
+        'Email Subject', //Title of setting displayed next to setting on plugin page
+        'da_coupgen_email_subject', //Call back function used to display markup
+        'da-coupon-generator-email-settings', //Specifies the page setting should be displayed on
+        'email_main'//Specifies the section that displays the setting should match the section ID
+    );
 }
 
 
@@ -72,4 +79,9 @@ function da_coupgen_mc_api_key() {
 function da_coupgen_mc_list_id() {
     $options = get_option('da_coupgen_email_options');
     echo "<input class='da-coupgen-mc-list-id' name='da_coupgen_email_options[mc_list_id]' size='40' type='text' value='{$options['mc_list_id']}' />";
+}
+
+function da_coupgen_email_subject(){
+    $options = get_option('da_coupgen_email_options');
+    echo "<input id='da-coupgen-input-mc-api-key' name='da_coupgen_email_options[email_subject]' size='40' type='text' value='{$options['email_subject']}' />";
 }
