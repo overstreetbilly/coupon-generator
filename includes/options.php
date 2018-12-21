@@ -40,7 +40,7 @@ function da_coupgen_admin_init(){//Registers settings function
         'plugin_main', //ID of Section
         'MailChimp Settings', // Title of the section
         'da_coupgen_mailchimp_section_text', // Call to callback function
-        'da-coupon-generator'//the menu page to display the section
+        'da-coupon-generator-email-settings'//the menu page to display the section
     );    
     add_settings_section(
         'plugin_secondary', //ID of Section
@@ -49,17 +49,17 @@ function da_coupgen_admin_init(){//Registers settings function
         'da-coupon-generator' //the menu page to display the section
     );
     add_settings_field(
-        'da_coupgen_mc_api_key_input', 
-        'MailChimp API Key', 
-        'da_coupgen_mc_api_key', 
-        'da-coupon-generator', 
-        'plugin_main'
+        'da_coupgen_mc_api_key_input', //Setting ID used to retrieve from database
+        'MailChimp API Key', //Title of setting displayed next to setting on plugin page
+        'da_coupgen_mc_api_key', //Call back function used to display markup
+        'da-coupon-generator-email-settings', //Specifies the page setting should be displayed on
+        'plugin_main'//Specifies the section that displays the setting should match the section ID
     );
     add_settings_field(
         'da_coupgen_mc_list_id_input', 
         'MailChimp List ID', 
         'da_coupgen_mc_list_id', 
-        'da-coupon-generator', 
+        'da-coupon-generator-email-settings', 
         'plugin_main'
     );
     
