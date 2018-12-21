@@ -9,8 +9,9 @@ function wpdocs_set_html_mail_content_type() {
 function da_send_coupon_email(){
                 global $email;
                 global $coupon_code;
+                $send_email_options = get_option('da_coupgen_email_options');
                 $to = $email;
-                $subject = "Free Sample code";
+                $subject = $send_email_options['email_subject'];
                 $message = "
                 <html>
                    <head>
