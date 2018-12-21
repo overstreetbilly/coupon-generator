@@ -20,8 +20,8 @@ if ( ! defined( 'ABSPATH' )){
  require_once(plugin_dir_path(__FILE__).'includes/generateRandomString.php');
  require_once(plugin_dir_path(__FILE__).'includes/doMailChimpCheck.php');
  require_once(plugin_dir_path(__FILE__).'includes/addCouponToWordpress.php');
- require_once(plugin_dir_path(__FILE__).'includes/options.php');
- require_once(plugin_dir_path(__FILE__).'includes/email-settings.php');
+ require_once(plugin_dir_path(__FILE__).'includes/coupon-options.php');
+ require_once(plugin_dir_path(__FILE__).'includes/email-options.php');
 
 
 function da_coupon_gen_shortcode(){
