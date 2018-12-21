@@ -27,17 +27,18 @@ function da_coupgen_add_email_settings_sections(){
         'plugin_options_validate' 
     );
     add_settings_section(
-        'email_main', //ID of Section
-        'Email Settings', // Title of the section
-        'da_coupgen_email_section_text', // Call to callback function
-        'da-coupon-generator-email-settings'//the menu page to display the section
-    );
-    add_settings_section(
         'da_coupgen_mc_settings', //ID of Section
         'MailChimp Settings', // Title of the section
         'da_coupgen_mailchimp_section_text', // Call to callback function
         'da-coupon-generator-email-settings'//the menu page to display the section
     ); 
+    add_settings_section(
+        'email_main', //ID of Section
+        'Email Settings', // Title of the section
+        'da_coupgen_email_section_text', // Call to callback function
+        'da-coupon-generator-email-settings'//the menu page to display the section
+    );
+   
     add_settings_field(
         'da_coupgen_mc_api_key_input', //Setting ID used to retrieve from database
         'MailChimp API Key', //Title of setting displayed next to setting on plugin page
