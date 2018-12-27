@@ -25,9 +25,6 @@ function coupon_generator_options() {
 }
 
 
-
-
-
 add_action('admin_init', 'da_coupgen_admin_init');
 
 
